@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Testing CloudFormation template for AWS Organizations
+Description: Testing Cloudformation
 
 Parameters:
   Customer:
@@ -27,6 +27,4 @@ Resources:
         - Key: Purpose
           Value: dev
         - Key: Owner
-          Value: !Ref Owner
-        - Key: dt_owner_email
           Value: !Ref Owner
