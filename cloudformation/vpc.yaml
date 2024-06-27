@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Testing CloudFormation template for AWS Organizations
+
+Parameters:
+  Customer:
+    Type: String
+    Default: jakub-test
+  Owner:
+    Type: String
+    Default: jakub.aschmann@dynatrace.com
+
+############################
+# Cloudformation Resources #
+############################
+
+Resources:
+  devVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.240.0.0/22
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: !Sub dev-vpc-${Customer}
+        - Key: Purpose
+          Value: dev
+        - Key: Owner
+          Value: !Ref Owner
+        - Key: dt_owner_email
+          Value: !Ref Owner
